@@ -1,0 +1,439 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="config.lua"/>
+	<!--<Script file="fontDB.lua"/>-->
+	
+	<Button name="NavigatorEntryTemplate"  virtual="true"> <!--text="TEMP"-->
+		<Size x="262" y="16"/>
+		<Layers>
+			<Layer>
+				<FontString parentKey="name" inherits="GameFontNormal" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT" x="6" y="0"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self.highlight = self:GetHighlightTexture();
+				self.highlight:SetVertexColor(.196, .388, .8);
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+			</OnLoad>
+			<OnClick>
+				PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+				ListEntry_SetSelected(self, self:GetParent(), "entry");
+			</OnClick>
+			<OnEnter>
+				EntryTooltip:SetOwner(self, "ANCHOR_RIGHT", -100, 0)
+				EntryTooltip_Update(self);
+				EntryTooltip:Show();
+			</OnEnter>
+			<OnLeave>
+				EntryTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<ButtonText name="$parentText" justifyH="LEFT" wordwrap="false"/>
+		<NormalFont style="GameFontNormal"/>
+		<HighlightFont style="GameFontHighlight"/>
+		<HighlightTexture file="Interface\QuestFrame\UI-QuestLogTitleHighlight" alphaMode="ADD">
+			<Anchors>
+				<Anchor point="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="1"/>
+					</Offset>
+				</Anchor>
+				<Anchor point="BOTTOMRIGHT">
+					<Offset>
+						<AbsDimension x="0" y="1"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</HighlightTexture>
+	</Button>
+	<Frame name="NavigatorListTemplate" enableMouse="true" inherits="OptionsBoxTemplate" virtual="true">
+		<Size x="262" y="288"/>
+		<Frames>
+			<Button name="$parentEntry1" parentKey="Entry1" inherits="NavigatorEntryTemplate" id="1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="10" y="-6"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry2" parentKey="Entry2" inherits="NavigatorEntryTemplate" id="2">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry1" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry3" parentKey="Entry3" inherits="NavigatorEntryTemplate" id="3">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry2" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry4" parentKey="Entry4" inherits="NavigatorEntryTemplate" id="4">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry3" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry5" parentKey="Entry5" inherits="NavigatorEntryTemplate" id="5">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry4" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry6" parentKey="Entry6" inherits="NavigatorEntryTemplate" id="6">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry5" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry7" parentKey="Entry7" inherits="NavigatorEntryTemplate" id="7">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry6" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry8" parentKey="Entry8" inherits="NavigatorEntryTemplate" id="8">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry7" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry9" parentKey="Entry9" inherits="NavigatorEntryTemplate" id="9">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry8" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry10" parentKey="Entry10" inherits="NavigatorEntryTemplate" id="10">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry9" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry11" parentKey="Entry11" inherits="NavigatorEntryTemplate" id="11">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry10" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry12" parentKey="Entry12" inherits="NavigatorEntryTemplate" id="12">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry11" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry13" parentKey="Entry13" inherits="NavigatorEntryTemplate" id="13">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry12" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry14" parentKey="Entry14" inherits="NavigatorEntryTemplate" id="14">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry13" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<!--<Button name="$parentEntry15" parentKey="Entry15" inherits="NavigatorEntryTemplate" id="15">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry14" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<Button name="$parentEntry16" parentKey="Entry16" inherits="NavigatorEntryTemplate" id="16">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="$parentEntry15" relativePoint="BOTTOM" x="0" y="-4"/>
+				</Anchors>
+			</Button>
+			<ScrollFrame name="$parentScrollFrame" inherits="FauxScrollFrameTemplate">
+				<Size x="234" y="277"/>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT"/>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture name="$parentScrollBarTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+							<Size x="31" y="256"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="-2" y="5"/>
+							</Anchors>
+							<TexCoords left="0" right="0.484375" top="0" bottom="1.0"/>
+						</Texture>
+						<Texture name="$parentScrollBarBottom" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+							<Size x="31" y="106"/>
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="-2" y="-2"/>
+							</Anchors>
+							<TexCoords left="0.515625" right="1.0" top="0" bottom="0.4140625"/>
+						</Texture>
+						<Texture name="$parentScrollBarMiddle" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+							<Size x="31" y="60"/>
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parentScrollBarTop" relativePoint="BOTTOM"/>
+								<Anchor point="BOTTOM" relativeTo="$parentScrollBarBottom" relativePoint="TOP"/>
+							</Anchors>
+							<TexCoords left="0" right="0.484375" top=".75" bottom="1.0"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnVerticalScroll>
+						NavigatorList_OnVerticalScroll(self, offset);
+					</OnVerticalScroll>
+				</Scripts>
+				<ScrollChild>
+					<Frame name="$parentScrollFrameScrollChildFrame">
+						<Size x="234" y="277"/>
+					</Frame>
+				</ScrollChild>
+			</ScrollFrame>-->
+			<Frame name="$parentBorder" setAllPoints="true" inherits="OptionsBoxTemplate"/>
+		</Frames>
+		<Scripts>
+			<OnLoad function="NavigatorList_OnLoad"/>
+			<OnShow function="NavigatorList_OnShow"/>
+			<OnHide function="NavigatorList_OnHide"/>
+		</Scripts>
+	</Frame>
+
+    <Frame name="Navigator"><!--inherits="OptionsBoxTemplate"-->
+        <Size>
+            <AbsDimension x="533" y="296"/>
+        </Size>
+        <Frames>
+		    <Button name="$parentTab1" inherits="TabButtonTemplate" text="Fancy" id="1">
+				<KeyValues>
+					<KeyValue key="group" value="Fancy" type="string"/>
+				</KeyValues>
+    		    <Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="Navigator" relativePoint="TOPLEFT" x="6" y="-2"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+						<!--self.Text:SetPoint("BOTTOM", 0, 3)-->
+					</OnLoad>
+					<OnClick>
+						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+						PanelTemplates_Tab_OnClick(self, Navigator);
+						Navigator_TabOnClick(self);
+					</OnClick>
+				</Scripts>
+    		</Button>
+    		<Button name="$parentTab2" inherits="TabButtonTemplate" text="Friends" id="2">
+				<KeyValues>
+					<KeyValue key="group" value="Friends" type="string"/>
+				</KeyValues>
+    		    <Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab1" relativePoint="TOPRIGHT" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+						self.Text:SetPoint("BOTTOM", 0, 3)
+					</OnLoad>
+					<OnClick>
+						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+						PanelTemplates_Tab_OnClick(self, Navigator);
+						Navigator_TabOnClick(self);
+					</OnClick>
+				</Scripts>
+    		</Button>
+    		<Button name="$parentTab3" inherits="TabButtonTemplate" text="Game" id="3">
+				<KeyValues>
+					<KeyValue key="group" value="Game" type="string"/>
+				</KeyValues>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab2" relativePoint="TOPRIGHT" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+						self.Text:SetPoint("BOTTOM", 0, 3)
+					</OnLoad>
+					<OnClick>
+						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+						PanelTemplates_Tab_OnClick(self, Navigator);
+						Navigator_TabOnClick(self);
+					</OnClick>
+				</Scripts>
+    		</Button>
+    		<Button name="$parentTab4" inherits="TabButtonTemplate" text="Number" id="4">
+				<KeyValues>
+					<KeyValue key="group" value="Number" type="string"/>
+				</KeyValues>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab3" relativePoint="TOPRIGHT" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+						self.Text:SetPoint("BOTTOM", 0, 3)
+					</OnLoad>
+					<OnClick>
+						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+						PanelTemplates_Tab_OnClick(self, Navigator);
+						Navigator_TabOnClick(self);
+					</OnClick>
+				</Scripts>
+    		</Button>
+    		<Button name="$parentTab5" inherits="TabButtonTemplate" text="Quest" id="5">
+				<KeyValues>
+					<KeyValue key="group" value="Quest" type="string"/>
+				</KeyValues>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab4" relativePoint="TOPRIGHT" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+						self.Text:SetPoint("BOTTOM", 0, 3)
+					</OnLoad>
+					<OnClick>
+						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+						PanelTemplates_Tab_OnClick(self, Navigator);
+						Navigator_TabOnClick(self);
+					</OnClick>
+				</Scripts>
+    		</Button>
+    		<Button name="$parentTab6" inherits="TabButtonTemplate" text="System" id="6">
+				<KeyValues>
+					<KeyValue key="group" value="System" type="string"/>
+				</KeyValues>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab5" relativePoint="TOPRIGHT" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+						self.Text:SetPoint("BOTTOM", 0, 3)
+					</OnLoad>
+					<OnClick>
+						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+						PanelTemplates_Tab_OnClick(self, Navigator);
+						Navigator_TabOnClick(self);
+					</OnClick>
+				</Scripts>
+    		</Button>
+    		<Button name="$parentTab7" inherits="TabButtonTemplate" text="Misc" id="7">
+				<KeyValues>
+					<KeyValue key="group" value="Misc" type="string"/>
+				</KeyValues>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab6" relativePoint="TOPRIGHT" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+						self.Text:SetPoint("BOTTOM", 0, 3)
+					</OnLoad>
+					<OnClick>
+						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+						PanelTemplates_Tab_OnClick(self, Navigator);
+						Navigator_TabOnClick(self);
+					</OnClick>
+				</Scripts>
+    		</Button>
+			<Frame name="$parentFontList" parentKey="fontList" inherits="NavigatorListTemplate">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT" x="4" y="0"/>
+				</Anchors>
+				<KeyValues>
+					<KeyValue key="type" value="Fonts" type="string"/>
+				</KeyValues>
+				<Frames>
+					<ScrollFrame name="$parentScrollFrame" inherits="FauxScrollFrameTemplate">
+						<Size x="234" y="277"/>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT"/>
+						</Anchors>
+						<!--<Layers>
+							<Layer level="BACKGROUND">
+								<Texture name="$parentScrollBarTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+									<Size x="31" y="256"/>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="-2" y="5"/>
+									</Anchors>
+									<TexCoords left="0" right="0.484375" top="0" bottom="1.0"/>
+								</Texture>
+								<Texture name="$parentScrollBarBottom" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+									<Size x="31" y="106"/>
+									<Anchors>
+										<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="-2" y="-2"/>
+									</Anchors>
+									<TexCoords left="0.515625" right="1.0" top="0" bottom="0.4140625"/>
+								</Texture>
+								<Texture name="$parentScrollBarMiddle" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+									<Size x="31" y="60"/>
+									<Anchors>
+										<Anchor point="TOP" relativeTo="$parentScrollBarTop" relativePoint="BOTTOM"/>
+										<Anchor point="BOTTOM" relativeTo="$parentScrollBarBottom" relativePoint="TOP"/>
+									</Anchors>
+									<TexCoords left="0" right="0.484375" top=".75" bottom="1.0"/>
+								</Texture>
+							</Layer>
+						</Layers>-->
+						<Scripts>
+							<OnVerticalScroll>
+								NavigatorList_OnVerticalScroll(self, offset, FontList_Update);
+							</OnVerticalScroll>
+						</Scripts>
+						<ScrollChild>
+							<Frame name="FontListScrollFrameScrollChildFrame">
+								<Size x="234" y="277"/>
+							</Frame>
+						</ScrollChild>
+					</ScrollFrame>
+				</Frames>
+			</Frame>
+			<Frame name="$parentStyleList" parentKey="styleList" inherits="NavigatorListTemplate">
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parent" relativePoint="RIGHT" x="-4" y="0"/>
+				</Anchors>
+				<KeyValues>
+					<KeyValue key="type" value="Styles" type="string"/>
+				</KeyValues>
+				<Frames>
+					<ScrollFrame name="$parentScrollFrame" inherits="FauxScrollFrameTemplate">
+						<Size x="234" y="277"/>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT"/>
+						</Anchors>
+						<!--<Layers>
+							<Layer level="BACKGROUND">
+								<Texture name="$parentScrollBarTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+									<Size x="31" y="256"/>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="-2" y="5"/>
+									</Anchors>
+									<TexCoords left="0" right="0.484375" top="0" bottom="1.0"/>
+								</Texture>
+								<Texture name="$parentScrollBarBottom" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+									<Size x="31" y="106"/>
+									<Anchors>
+										<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="-2" y="-2"/>
+									</Anchors>
+									<TexCoords left="0.515625" right="1.0" top="0" bottom="0.4140625"/>
+								</Texture>
+								<Texture name="$parentScrollBarMiddle" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
+									<Size x="31" y="60"/>
+									<Anchors>
+										<Anchor point="TOP" relativeTo="$parentScrollBarTop" relativePoint="BOTTOM"/>
+										<Anchor point="BOTTOM" relativeTo="$parentScrollBarBottom" relativePoint="TOP"/>
+									</Anchors>
+									<TexCoords left="0" right="0.484375" top=".75" bottom="1.0"/>
+								</Texture>
+							</Layer>
+						</Layers>-->
+						<Scripts>
+							<OnVerticalScroll>
+								NavigatorList_OnVerticalScroll(self, offset, StyleList_Update);
+							</OnVerticalScroll>
+						</Scripts>
+						<ScrollChild>
+							<Frame name="StyleListScrollFrameScrollChildFrame">
+								<Size x="234" y="277"/>
+							</Frame>
+						</ScrollChild>
+					</ScrollFrame>
+				</Frames>
+			</Frame>
+			<Frame name="$parentBorder" setAllPoints="true" inherits="OptionsBoxTemplate"/>
+        </Frames>
+		<Scripts>
+			<OnShow function="Navigator_OnShow"/>
+			<OnHide function="Navigator_OnHide"/>
+			<OnLoad function="Navigator_OnLoad"/>
+		</Scripts>
+    </Frame>
+	
+</Ui>

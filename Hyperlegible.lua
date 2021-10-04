@@ -9,19 +9,23 @@ lsm:Register("font", "AHL BoldItalic", [[Interface\AddOns\Hyperlegible\fonts\Atk
 ------------------------------------------------------------
 -- ATTENTION: Greetings, Seeker of Knowledge! As of now this
 -- is a very dirty implementation of how this addon is
--- intended to work. Pls don't bully me. 
+-- intended to work. Please don't bully me. 
 ------------------------------------------------------------
 
 -- Only apply font changes once the addon has been loaded!
-local frame = CreateFrame("Frame") 
+-- local frame = CreateFrame("Frame") 
 -- frame:RegisterEvent("PLAYER_LOGIN")
 -- frame:RegisterEvent("PLAYER_LOGOUT")
 -- frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 -- frame:RegisterEvent("PLAYER_LEAVING_WORLD")
-frame:RegisterEvent("ADDON_LOADED")
+-- frame:RegisterEvent("ADDON_LOADED")
 
-frame:SetScript("OnEvent", function(self, event, arg)
-    if event == "ADDON_LOADED" and arg == "Hyperlegible" then
+-- frame:SetScript("OnEvent", function(self, event, arg)
+    -- if event == "ADDON_LOADED" and arg == "Hyperlegible" then
+function hyper.UpdateFonts()
+
+		-- Check user's locale and exit before changing fonts to prevent an issues for non-Latin language users
+		if not hyper.locale[GetLocale()] then print("Hyperlegible Disabled: Unsupported Locale") return end
 
 		DAMAGE_TEXT_FONT = [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Regular-102.ttf]];
 		UNIT_NAME_FONT = [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Regular-102.ttf]];
@@ -172,5 +176,5 @@ frame:SetScript("OnEvent", function(self, event, arg)
 		Tooltip_Med:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 12)
 		Tooltip_Small:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 10)
 
-    end
-end)
+end
+-- end)
