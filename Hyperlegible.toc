@@ -1,0 +1,18 @@
+## Interface-Retail: 90100
+## Interface-Classic: 11307
+## Interface-BCC: 20502
+## Title: Hyperlegible
+## Author: 
+## Version: 9.1.0
+## Notes: Replaces UI fonts with Atkinson Hyperlegible to increase legibility for players with low vision.
+
+## SavedVariables: FontDB, FontFamilyDB
+
+lib\LibSharedMedia-3.0\LibStub\LibStub.lua
+lib\LibSharedMedia-3.0\CallbackHandler-1.0\CallbackHandler-1.0.lua
+lib\LibSharedMedia-3.0\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
+
+fontDB.lua
+Hyperlegible.lua
+#config.xml
+#config.lua
