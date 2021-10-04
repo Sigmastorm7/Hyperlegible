@@ -16,4 +16,4 @@ Currently the addon just replaces all the interface's default fonts universally,
 1. Configuration panel for user customization
 2. 'Font-Finder' tool to help identify which fonts correspond to which interface elements
 3. Support/exceptions for popular interface overhaul addons
-4. Other stuff probably
+4. Classic/BCC support
