@@ -60,16 +60,7 @@ end
 -- local fullUpdate = false and (not safeUpdate)
 
 -- Saved variable loading & saving
-local frame = CreateFrame("Frame")
-
-frame:RegisterEvent("PLAYER_LOGIN")
--- frame:RegisterEvent("PLAYER_LOGOUT")
--- frame:RegisterEvent("PLAYER_ENTERING_WORLD")
--- frame:RegisterEvent("PLAYER_LEAVING_WORLD")
--- frame:RegisterEvent("ADDON_LOADED")
-
-frame:SetScript("OnEvent", function(self, event, arg1, arg2)
-    if event == "PLAYER_LOGIN" then
+hyper.makeDB = function()
 		------------------------------------------------
 		-- 	NOTE: font references acquired using the
 		--	GetFontObject()	method MUST be assigned to
@@ -117,11 +108,7 @@ frame:SetScript("OnEvent", function(self, event, arg1, arg2)
             end
         end
 
-        hyper.UpdateFonts()
-
     -- elseif event == "PLAYER_LEAVING_WORLD" or event == "PLAYER_LOGOUT" then
 
         -- Put logout processes here
-
-    end
-end)
+end
