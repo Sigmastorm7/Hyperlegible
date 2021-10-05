@@ -185,145 +185,328 @@
 		</Scripts>
 	</Frame>
 
-    <Frame name="Navigator"><!--inherits="OptionsBoxTemplate"-->
+    <Frame name="Navigator" inherits="OptionsBoxTemplate">
         <Size>
-            <AbsDimension x="533" y="296"/>
+            <AbsDimension x="591" y="396"/>
         </Size>
         <Frames>
-		    <Button name="$parentTab1" inherits="TabButtonTemplate" text="Fancy" id="1">
-				<KeyValues>
-					<KeyValue key="group" value="Fancy" type="string"/>
-				</KeyValues>
-    		    <Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="Navigator" relativePoint="TOPLEFT" x="6" y="-2"/>
-				</Anchors>
-				<Scripts>
-					<OnLoad>
-						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
-						<!--self.Text:SetPoint("BOTTOM", 0, 3)-->
-					</OnLoad>
-					<OnClick>
-						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-						PanelTemplates_Tab_OnClick(self, Navigator);
-						Navigator_TabOnClick(self);
-					</OnClick>
-				</Scripts>
-    		</Button>
-    		<Button name="$parentTab2" inherits="TabButtonTemplate" text="Friends" id="2">
-				<KeyValues>
-					<KeyValue key="group" value="Friends" type="string"/>
-				</KeyValues>
-    		    <Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentTab1" relativePoint="TOPRIGHT" x="0" y="0"/>
-				</Anchors>
-				<Scripts>
-					<OnLoad>
-						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
-						self.Text:SetPoint("BOTTOM", 0, 3)
-					</OnLoad>
-					<OnClick>
-						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-						PanelTemplates_Tab_OnClick(self, Navigator);
-						Navigator_TabOnClick(self);
-					</OnClick>
-				</Scripts>
-    		</Button>
-    		<Button name="$parentTab3" inherits="TabButtonTemplate" text="Game" id="3">
-				<KeyValues>
-					<KeyValue key="group" value="Game" type="string"/>
-				</KeyValues>
+			<!--Family navigation tabs-->
+			<Frame name="$parentFamily" setAllPoints="true">
 				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentTab2" relativePoint="TOPRIGHT" x="0" y="0"/>
+					<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT" x="3" y="-32"/>
+					<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT" x="-3" y="3"/>
 				</Anchors>
+				<Frames>
+					<Frame inherits="OptionsBoxTemplate" setAllPoints="true"/>
+					<Button name="FamilyTab1" inherits="TabButtonTemplate" text="Fancy" id="1">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="family" type="string"/>
+							<KeyValue key="filter" value="Fancy" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="TOPLEFT" x="6" y="-2"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+    				<Button name="FamilyTab2" inherits="TabButtonTemplate" text="Game" id="2">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="family" type="string"/>
+							<KeyValue key="filter" value="Game" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="TOPLEFT" relativeTo="FamilyTab1" relativePoint="TOPRIGHT" x="0" y="0"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+    				<Button name="FamilyTab3" inherits="TabButtonTemplate" text="Number" id="3">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="family" type="string"/>
+							<KeyValue key="filter" value="Number" type="string"/>
+						</KeyValues>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="FamilyTab2" relativePoint="TOPRIGHT" x="0" y="0"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+    				<Button name="FamilyTab4" inherits="TabButtonTemplate" text="Quest" id="4">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="family" type="string"/>
+							<KeyValue key="filter" value="Quest" type="string"/>
+						</KeyValues>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="FamilyTab3" relativePoint="TOPRIGHT" x="0" y="0"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+    				<Button name="FamilyTab5" inherits="TabButtonTemplate" text="System" id="5">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="family" type="string"/>
+							<KeyValue key="filter" value="System" type="string"/>
+						</KeyValues>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="FamilyTab4" relativePoint="TOPRIGHT" x="0" y="0"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+    				<Button name="FamilyTab6" inherits="TabButtonTemplate" text="Misc" id="6">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="family" type="string"/>
+							<KeyValue key="filter" value="Misc" type="string"/>
+						</KeyValues>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="FamilyTab5" relativePoint="TOPRIGHT" x="0" y="0"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+				</Frames>
 				<Scripts>
 					<OnLoad>
-						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
-						self.Text:SetPoint("BOTTOM", 0, 3)
+						PanelTemplates_SetNumTabs(self, 6);
+						PanelTemplates_UpdateTabs(self);
 					</OnLoad>
-					<OnClick>
-						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-						PanelTemplates_Tab_OnClick(self, Navigator);
-						Navigator_TabOnClick(self);
-					</OnClick>
 				</Scripts>
-    		</Button>
-    		<Button name="$parentTab4" inherits="TabButtonTemplate" text="Number" id="4">
-				<KeyValues>
-					<KeyValue key="group" value="Number" type="string"/>
-				</KeyValues>
+		    </Frame>
+			<!--Traits navigation tabs-->
+			<Frame name="$parentTraits">
 				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentTab3" relativePoint="TOPRIGHT" x="0" y="0"/>
+					<Anchor point="TOPLEFT" relativeTo="$parentFamily" relativePoint="TOPLEFT" x="3" y="-32"/>
+					<Anchor point="BOTTOMRIGHT" relativeTo="$parentFamily" relativePoint="BOTTOMRIGHT" x="-3" y="3"/>
 				</Anchors>
+				<Frames>
+					<Frame inherits="OptionsBoxTemplate" setAllPoints="true"/>
+					<Button name="TraitsTab1" inherits="TabButtonTemplate" text="Small" id="1">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="traits" type="string"/>
+							<KeyValue key="filter" value="small" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="TOPLEFT" x="6" y="-2"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+					<Button name="TraitsTab2" inherits="TabButtonTemplate" text="Medium" id="2">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="traits" type="string"/>
+							<KeyValue key="filter" value="medium" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="TOPLEFT" relativeTo="TraitsTab1" relativePoint="TOPRIGHT"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+					<Button name="TraitsTab3" inherits="TabButtonTemplate" text="Large" id="3">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="traits" type="string"/>
+							<KeyValue key="filter" value="large" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="TOPLEFT" relativeTo="TraitsTab2" relativePoint="TOPRIGHT"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+					<Button name="TraitsTab4" inherits="TabButtonTemplate" text="Outline" id="4">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="traits" type="string"/>
+							<KeyValue key="filter" value="outline" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="TOPLEFT" relativeTo="TraitsTab3" relativePoint="TOPRIGHT"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+					<Button name="TraitsTab5" inherits="TabButtonTemplate" text="Thick Outline" id="5">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="traits" type="string"/>
+							<KeyValue key="filter" value="thickoutline" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="TOPLEFT" relativeTo="TraitsTab4" relativePoint="TOPRIGHT"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+					<Button name="TraitsTab6" inherits="TabButtonTemplate" text="Monochrome" id="6">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="traits" type="string"/>
+							<KeyValue key="filter" value="monochrome" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="TOPLEFT" relativeTo="TraitsTab5" relativePoint="TOPRIGHT"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+					<Button name="TraitsTab7" inherits="TabButtonTemplate" text="Shadow" id="7">
+						<KeyValues>
+							<KeyValue key="selected" value="false" type="boolean"/>
+							<KeyValue key="disabled" value="false" type="boolean"/>
+							<KeyValue key="group" value="traits" type="string"/>
+							<KeyValue key="filter" value="shadow" type="string"/>
+						</KeyValues>
+    				    <Anchors>
+							<Anchor point="TOPLEFT" relativeTo="TraitsTab6" relativePoint="TOPRIGHT"/>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								PanelTemplates_TabResize(self, 0, nil, self.minWidth);
+								FilterTab_Deselect(self)
+							</OnLoad>
+							<OnClick>
+								PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+								FilterTab_OnClick(self)
+							</OnClick>
+						</Scripts>
+    				</Button>
+				</Frames>
 				<Scripts>
 					<OnLoad>
-						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
-						self.Text:SetPoint("BOTTOM", 0, 3)
+						PanelTemplates_SetNumTabs(self, 7);
+						PanelTemplates_UpdateTabs(self);
 					</OnLoad>
-					<OnClick>
-						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-						PanelTemplates_Tab_OnClick(self, Navigator);
-						Navigator_TabOnClick(self);
-					</OnClick>
 				</Scripts>
-    		</Button>
-    		<Button name="$parentTab5" inherits="TabButtonTemplate" text="Quest" id="5">
-				<KeyValues>
-					<KeyValue key="group" value="Quest" type="string"/>
-				</KeyValues>
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentTab4" relativePoint="TOPRIGHT" x="0" y="0"/>
-				</Anchors>
-				<Scripts>
-					<OnLoad>
-						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
-						self.Text:SetPoint("BOTTOM", 0, 3)
-					</OnLoad>
-					<OnClick>
-						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-						PanelTemplates_Tab_OnClick(self, Navigator);
-						Navigator_TabOnClick(self);
-					</OnClick>
-				</Scripts>
-    		</Button>
-    		<Button name="$parentTab6" inherits="TabButtonTemplate" text="System" id="6">
-				<KeyValues>
-					<KeyValue key="group" value="System" type="string"/>
-				</KeyValues>
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentTab5" relativePoint="TOPRIGHT" x="0" y="0"/>
-				</Anchors>
-				<Scripts>
-					<OnLoad>
-						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
-						self.Text:SetPoint("BOTTOM", 0, 3)
-					</OnLoad>
-					<OnClick>
-						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-						PanelTemplates_Tab_OnClick(self, Navigator);
-						Navigator_TabOnClick(self);
-					</OnClick>
-				</Scripts>
-    		</Button>
-    		<Button name="$parentTab7" inherits="TabButtonTemplate" text="Misc" id="7">
-				<KeyValues>
-					<KeyValue key="group" value="Misc" type="string"/>
-				</KeyValues>
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="$parentTab6" relativePoint="TOPRIGHT" x="0" y="0"/>
-				</Anchors>
-				<Scripts>
-					<OnLoad>
-						PanelTemplates_TabResize(self, 0, nil, self.minWidth);
-						self.Text:SetPoint("BOTTOM", 0, 3)
-					</OnLoad>
-					<OnClick>
-						PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
-						PanelTemplates_Tab_OnClick(self, Navigator);
-						Navigator_TabOnClick(self);
-					</OnClick>
-				</Scripts>
-    		</Button>
-			<Frame name="$parentFontList" parentKey="fontList" inherits="NavigatorListTemplate">
+			</Frame>
+        </Frames>
+		<Scripts>
+			<OnShow function="Navigator_OnShow"/>
+			<OnHide function="Navigator_OnHide"/>
+			<!--<OnLoad function="Navigator_OnLoad"/>-->
+		</Scripts>
+    </Frame>
+	
+</Ui>
+
+<!--
+	<Frame name="$parentFontList" parentKey="fontList" inherits="NavigatorListTemplate">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT" x="4" y="0"/>
 				</Anchors>
@@ -336,7 +519,7 @@
 						<Anchors>
 							<Anchor point="LEFT" relativePoint="LEFT"/>
 						</Anchors>
-						<!--<Layers>
+						<Layers>
 							<Layer level="BACKGROUND">
 								<Texture name="$parentScrollBarTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
 									<Size x="31" y="256"/>
@@ -361,7 +544,7 @@
 									<TexCoords left="0" right="0.484375" top=".75" bottom="1.0"/>
 								</Texture>
 							</Layer>
-						</Layers>-->
+						</Layers>
 						<Scripts>
 							<OnVerticalScroll>
 								NavigatorList_OnVerticalScroll(self, offset, FontList_Update);
@@ -388,7 +571,7 @@
 						<Anchors>
 							<Anchor point="LEFT" relativePoint="LEFT"/>
 						</Anchors>
-						<!--<Layers>
+						<Layers>
 							<Layer level="BACKGROUND">
 								<Texture name="$parentScrollBarTop" file="Interface\PaperDollInfoFrame\UI-Character-ScrollBar">
 									<Size x="31" y="256"/>
@@ -413,7 +596,7 @@
 									<TexCoords left="0" right="0.484375" top=".75" bottom="1.0"/>
 								</Texture>
 							</Layer>
-						</Layers>-->
+						</Layers>
 						<Scripts>
 							<OnVerticalScroll>
 								NavigatorList_OnVerticalScroll(self, offset, StyleList_Update);
@@ -427,13 +610,11 @@
 					</ScrollFrame>
 				</Frames>
 			</Frame>
-			<Frame name="$parentBorder" setAllPoints="true" inherits="OptionsBoxTemplate"/>
-        </Frames>
-		<Scripts>
-			<OnShow function="Navigator_OnShow"/>
-			<OnHide function="Navigator_OnHide"/>
-			<OnLoad function="Navigator_OnLoad"/>
-		</Scripts>
-    </Frame>
-	
-</Ui>
+			<Frame name="$parentBorder1" setAllPoints="true" inherits="OptionsBoxTemplate"/>
+			<Frame name="$parentBorder2" inherits="OptionsBoxTemplate">
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="$parentBorder1" relativePoint="BOTTOMRIGHT" x="4" y="-4"/>
+					<Anchor point="TOPLEFT" relativeTo="$parentBorder1" relativePoint="TOPLEFT" x="-4" y="32"/>
+				</Anchors>
+			</Frame>
+-->
