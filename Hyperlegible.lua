@@ -1,10 +1,10 @@
 local addonName, hyper = ...
 -- Hyperlegible = LibStub("AceAddon-3.0"):NewAddon(Hyperlegible, "Hyperlegible", "LibSharedMedia-3.0")
 local lsm = LibStub("LibSharedMedia-3.0")
-lsm:Register("font", "AHL Regular", [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Regular-102.ttf]])
-lsm:Register("font", "AHL Bold", [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Bold-102.ttf]])
-lsm:Register("font", "AHL Italic", [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Italic-102.ttf]])
-lsm:Register("font", "AHL BoldItalic", [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-BoldItalic-102.ttf]])
+lsm:Register("font", "Hyper Regular", "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf")
+lsm:Register("font", "Hyper Bold", "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Bold-102.ttf")
+lsm:Register("font", "Hyper Italic", "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Italic-102.ttf")
+lsm:Register("font", "Hyper BoldItalic", "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-BoldItalic-102.ttf")
 
 ------------------------------------------------------------
 -- ATTENTION: Greetings, Seeker of Knowledge! As of now this
@@ -12,26 +12,61 @@ lsm:Register("font", "AHL BoldItalic", [[Interface\AddOns\Hyperlegible\fonts\Atk
 -- intended to work. Please don't bully me. 
 ------------------------------------------------------------
 
--- Only apply font changes once the addon has been loaded!
--- local frame = CreateFrame("Frame") 
--- frame:RegisterEvent("PLAYER_LOGIN")
+local frame = CreateFrame("Frame")
+
+frame:RegisterEvent("ADDON_LOADED")
+frame:RegisterEvent("PLAYER_LOGIN")
 -- frame:RegisterEvent("PLAYER_LOGOUT")
 -- frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 -- frame:RegisterEvent("PLAYER_LEAVING_WORLD")
--- frame:RegisterEvent("ADDON_LOADED")
 
--- frame:SetScript("OnEvent", function(self, event, arg)
-    -- if event == "ADDON_LOADED" and arg == "Hyperlegible" then
-function hyper.UpdateFonts()
+-- HyperFrame = CreateFrame("Frame", "HyperFrame", UIParent, "OptionsBoxTemplate")
+-- HyperFrame:SetPoint("TOPLEFT", "$parent", "CENTER", -100, 20)
+-- HyperFrame:SetPoint("BOTTOMRIGHT", "$parent", "CENTER", 100, -20)
+
+-- This macro causes a weird interaction in the text box
+-- /run print(unpack(WorldMapFrameText))
+
+
+	
+frame:SetScript("OnEvent", function(self, event, arg)
+	if event == "ADDON_LOADED" and arg == "Hyperlegible" then
+		-- [A-Z]+_[A-Z]+_FONT
+		STANDARD_TEXT_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+
+		UNIT_NAME_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+
+		NAMEPLATE_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+		NAMEPLATE_SPELLCAST_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+
+		DAMAGE_TEXT_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+
+		DEFAULT_AURA_DURATION_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+
+		TRADESKILL_REAGENT_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+	end
+	if event == "PLAYER_LOGIN" then
 
 		-- Check user's locale and exit before changing fonts to prevent an issues for non-Latin language users
 		if not hyper.locale[GetLocale()] then print("Hyperlegible Disabled: Unsupported Locale") return end
 
-		DAMAGE_TEXT_FONT = [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Regular-102.ttf]];
-		UNIT_NAME_FONT = [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Regular-102.ttf]];
-		NAMEPLATE_FONT = [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Bold-102.ttf]];
-		STANDARD_TEXT_FONT = [[Interface\AddOns\Hyperlegible\fonts\Atkinson-Hyperlegible-Regular-102.ttf]];
-		
+		hyper.makeDB()
+
+		do -- Exceptions that we'll handle manually
+			WorldMapFrameHomeButtonText:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 12)
+		end
+
+		local font
+
+		for n, f in pairs(FontDB) do
+			if _G[n] then
+				font = _G[n] or n
+				if f.height > 0 then
+					font:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", f.height, f.flags)
+				end
+			end
+		end
+	--[[
 		AchievementFont_Small:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 10)
 		ChatBubbleFont:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 13.000000953674)
 		CoreAbilityFont:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 32)
@@ -175,6 +210,6 @@ function hyper.UpdateFonts()
 		System_IME:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 16)
 		Tooltip_Med:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 12)
 		Tooltip_Small:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", 10)
-
-end
--- end)
+	]]
+	end
+end)
