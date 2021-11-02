@@ -11,20 +11,10 @@ local frame = CreateFrame("Frame")
 
 frame:RegisterEvent("ADDON_LOADED")
 frame:RegisterEvent("PLAYER_LOGIN")
--- frame:RegisterEvent("PLAYER_LOGOUT")
--- frame:RegisterEvent("PLAYER_ENTERING_WORLD")
--- frame:RegisterEvent("PLAYER_LEAVING_WORLD")
+-- frame:RegisterEvent("DISPLAY_SIZE_CHANGED")
 
--- HyperFrame = CreateFrame("Frame", "HyperFrame", UIParent, "OptionsBoxTemplate")
--- HyperFrame:SetPoint("TOPLEFT", "$parent", "CENTER", -100, 20)
--- HyperFrame:SetPoint("BOTTOMRIGHT", "$parent", "CENTER", 100, -20)
-
--- This macro causes a weird interaction in the text box
--- /run print(unpack(WorldMapFrameText))
-	
 frame:SetScript("OnEvent", function(self, event, arg)
 	if event == "ADDON_LOADED" and arg == "Hyperlegible" then
-		-- [A-Z]+_[A-Z]+_FONT
 		STANDARD_TEXT_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
 
 		UNIT_NAME_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
@@ -38,7 +28,7 @@ frame:SetScript("OnEvent", function(self, event, arg)
 		SMALLER_AURA_DURATION_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
 
 		TRADESKILL_REAGENT_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
-		
+
 	end
 	if event == "PLAYER_LOGIN" then
 
@@ -54,7 +44,8 @@ frame:SetScript("OnEvent", function(self, event, arg)
 			if _G[n] then
 				font = _G[n] or n
 				if f.height > 0 then
-					if UserConfig[n] ~= nil then
+					if f.height > 120 then print(n) end
+					if false then -- UserConfig[n] ~= nil then
 						p = UserConfig[n].path or db.paths.regular
 						hOff = UserConfig[n].hOff or 0
 						font:SetFont(p, f.height + hOff, f.flags)
@@ -69,16 +60,24 @@ frame:SetScript("OnEvent", function(self, event, arg)
 			UserConfigHistory = {}
 		end
 		UserConfig = nil
-		
+
 		local itr = 1
 		if UserConfig == nil then
 			UserConfig = {}
-			for _,font in pairs(db.fonts) do
+			for _,_font in pairs(db.fonts) do
 				if itr % 2 == 0 then
-					UserConfig[font] = {["path"] = db.paths.regular, ["hOff"] = 0}
+					UserConfig[_font] = {["path"] = db.paths.regular, ["hOff"] = 0}
 				end
 				itr = itr + 1
 			end
 		end
 	end
+	--[[
+	if event == "DISPLAY_SIZE_CHANGED" then
+		local w, h = GetPhysicalScreenSize()
+		if h <= 1200 then
+			print("FONTS SWAPPED TO BIG")
+		end
+	end
+	]]
 end)

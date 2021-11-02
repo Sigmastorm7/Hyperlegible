@@ -1,21 +1,15 @@
-## Interface-Retail: 90105
-## Interface-Classic: 11307
-## Interface-BCC: 20502
+## Interface: 90105
 ## Title: Hyperlegible
 ## Author: Siggy
-## Version: 9.1.0
+## Version: 1.1.1
 ## Notes: Replaces all UI fonts to improve text legibility
 
 ## SavedVariables: UserConfig, UserConfigHistory
 
-#@no-lib-strip@
 lib\LibStub\LibStub.lua
 lib\CallbackHandler-1.0\CallbackHandler-1.0.xml
 lib\LibSharedMedia-3.0\lib.xml
-#@end-no-lib-strip@
 
 # Core Files
 database.lua
 Hyperlegible.lua
-config.lua
-config.xml

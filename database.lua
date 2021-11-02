@@ -409,13 +409,13 @@ local addon, db = ...
                 },
             },
         },
-        ["CombatTextFont"] = {
+        ["CombatTextFont"] = { -- troublesome font
             ["flags"] = "",
             ["path"] = "Fonts\\FRIZQT__.TTF",
             ["inheritance"] = {
                 "SystemFont_World",
             },
-            ["height"] = 105008,
+            ["height"] = 125,
             ["info"] = {
                 ["outline"] = "",
                 ["shadow"] = {
@@ -436,13 +436,13 @@ local addon, db = ...
                 },
             },
         },
-        ["CombatTextFontOutline"] = {
+        ["CombatTextFontOutline"] = { -- troublesome font
             ["flags"] = "OUTLINE, THICKOUTLINE",
             ["path"] = "Fonts\\FRIZQT__.TTF",
             ["inheritance"] = {
                 "SystemFont_World_ThickOutline",
             },
-            ["height"] = 105008,
+            ["height"] = 125,
             ["info"] = {
                 ["outline"] = "OUTLINE, THICKOUTLINE",
                 ["shadow"] = {
@@ -6858,11 +6858,11 @@ local addon, db = ...
                 },
             },
         },
-        ["SystemFont_LargeNamePlateFixed"] = {
+        ["SystemFont_LargeNamePlateFixed"] = { -- troublesome font
             ["flags"] = "",
             ["path"] = "Fonts\\FRIZQT__.TTF",
             ["inheritance"] = false,
-            ["height"] = 32815.04296875,
+            ["height"] = 12,
             ["info"] = {
                 ["outline"] = "",
                 ["shadow"] = {
@@ -6953,11 +6953,11 @@ local addon, db = ...
                 },
             },
         },
-        ["SystemFont_NamePlateCastBar"] = {
+        ["SystemFont_NamePlateCastBar"] = { -- troublesome font
             ["flags"] = "OUTLINE",
             ["path"] = "Fonts\\FRIZQT__.TTF",
             ["inheritance"] = false,
-            ["height"] = 16407.521484375,
+            ["height"] = 125,
             ["info"] = {
                 ["outline"] = "OUTLINE",
                 ["shadow"] = {
@@ -6978,11 +6978,11 @@ local addon, db = ...
                 },
             },
         },
-        ["SystemFont_NamePlateFixed"] = {
+        ["SystemFont_NamePlateFixed"] = { -- troublesome font
             ["flags"] = "",
             ["path"] = "Fonts\\FRIZQT__.TTF",
             ["inheritance"] = false,
-            ["height"] = 22970,
+            ["height"] = 9,
             ["info"] = {
                 ["outline"] = "",
                 ["shadow"] = {
@@ -7618,11 +7618,11 @@ local addon, db = ...
                 },
             },
         },
-        ["SystemFont_World"] = {
+        ["SystemFont_World"] = { -- troublesome font
             ["flags"] = "",
             ["path"] = "Fonts\\FRIZQT__.TTF",
             ["inheritance"] = false,
-            ["height"] = 105008,
+            ["height"] = 125,
             ["info"] = {
                 ["outline"] = "",
                 ["shadow"] = {
@@ -7643,11 +7643,11 @@ local addon, db = ...
                 },
             },
         },
-        ["SystemFont_World_ThickOutline"] = {
+        ["SystemFont_World_ThickOutline"] = { -- troublesome font
             ["flags"] = "OUTLINE, THICKOUTLINE",
             ["path"] = "Fonts\\FRIZQT__.TTF",
             ["inheritance"] = false,
-            ["height"] = 105008,
+            ["height"] = 125,
             ["info"] = {
                 ["outline"] = "OUTLINE, THICKOUTLINE",
                 ["shadow"] = {
