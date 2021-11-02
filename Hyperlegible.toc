@@ -13,14 +13,6 @@ lib\LibSharedMedia-3.0\LibStub\LibStub.lua
 lib\LibSharedMedia-3.0\CallbackHandler-1.0\CallbackHandler-1.0.lua
 lib\LibSharedMedia-3.0\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
 
-# Locale files
-# Locales\Locale-enUS.lua
-# Locales\Locale-deDE.lua
-# Locales\Locale-esES.lua
-# Locales\Locale-frFR.lua
-
 # Core Files
 Hyperlegible.lua
 fontDB.lua
-#config.xml
-#config.lua
