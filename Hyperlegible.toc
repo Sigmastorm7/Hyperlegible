@@ -1,10 +1,10 @@
-## Interface-Retail: 90100
-## Interface-Classic: 11307
-## Interface-BCC: 20502
+## Interface: 90100
 ## Title: Hyperlegible
 ## Author: Siggy
-## Version: 9.1.0
-## Notes: Replaces UI fonts with Atkinson Hyperlegible to increase legibility for players with low vision.
+## Version: 1.1.0
+## Notes: Replaces UI fonts with Atkinson Hyperlegible to increase legibility for players with low vision
+## X-Curse-Project-ID: 533840
+## X-Wago-ID: WYK918KL
 
 ## SavedVariables: FontDB, FontFamilyDB
 
