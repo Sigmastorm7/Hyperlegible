@@ -4,6 +4,9 @@
 ## Version: 1.1.1
 ## Notes: Replaces all UI fonts to improve text legibility
 
+## X-Curse-Project-ID: 533840
+## X-Wago-ID: WYK918KL
+
 ## SavedVariables: UserConfig, UserConfigHistory
 
 lib\LibStub\LibStub.lua

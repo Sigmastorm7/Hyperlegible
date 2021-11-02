@@ -1,0 +1,11 @@
+ignore:
+    - locales
+    - config.lua
+    - config.xml
+    - hyperlegible.code-workspace
+    - LICENSE
+    - README.md
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
