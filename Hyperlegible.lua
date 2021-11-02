@@ -44,18 +44,17 @@ frame:SetScript("OnEvent", function(self, event, arg)
 			if _G[n] then
 				font = _G[n] or n
 				if f.height > 0 then
-					if f.height > 120 then print(n) end
-					if false then -- UserConfig[n] ~= nil then
+					--[[if false then -- UserConfig[n] ~= nil then
 						p = UserConfig[n].path or db.paths.regular
 						hOff = UserConfig[n].hOff or 0
 						font:SetFont(p, f.height + hOff, f.flags)
-					else
+					else]]
 						font:SetFont("Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf", f.height, f.flags)
-					end
+					-- end
 				end
 			end
 		end
-
+		--[[
 		if UserConfigHistory == nil then
 			UserConfigHistory = {}
 		end
@@ -71,6 +70,7 @@ frame:SetScript("OnEvent", function(self, event, arg)
 				itr = itr + 1
 			end
 		end
+		]]
 	end
 	--[[
 	if event == "DISPLAY_SIZE_CHANGED" then
