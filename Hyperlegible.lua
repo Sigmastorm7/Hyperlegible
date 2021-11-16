@@ -27,7 +27,7 @@ frame:SetScript("OnEvent", function(self, event, arg)
 		DEFAULT_AURA_DURATION_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
 		SMALLER_AURA_DURATION_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
 
-		TRADESKILL_REAGENT_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
+		-- TRADESKILL_REAGENT_FONT = "Interface\\AddOns\\Hyperlegible\\fonts\\Atkinson-Hyperlegible-Regular-102.ttf"
 
 	end
 	if event == "PLAYER_LOGIN" then
