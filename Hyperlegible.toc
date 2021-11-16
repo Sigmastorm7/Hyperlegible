@@ -1,7 +1,7 @@
 ## Interface: 90105
 ## Title: Hyperlegible
 ## Author: Siggy
-## Version: 1.1.1
+## Version: 1.1.2
 ## Notes: Replaces all UI fonts to improve text legibility
 
 ## X-Curse-Project-ID: 533840
